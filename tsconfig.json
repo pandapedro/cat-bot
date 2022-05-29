@@ -1,17 +1,33 @@
 {
 	"compilerOptions": {
-		"lib": ["ES6"],
 		"strict": true,
+		"baseUrl": ".",
 		"outDir": "dist",
-		"target": "es2016",
+		"lib": ["ES2019"],
+		"sourceMap": true,
+		"target": "es2019",
 		"module": "commonjs",
+		"alwaysStrict": true,
 		"skipLibCheck": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
 		"removeComments": true,
 		"esModuleInterop": true,
+		"strictNullChecks": true,
+		"paths": {
+			"@src/*": ["./src/*"]
+		},
 		"resolveJsonModule": true,
+		"noImplicitReturns": true,
 		"moduleResolution": "node",
+		"strictFunctionTypes": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"rootDirs": ["./src", "index.ts"],
+		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"typeRoots": ["./src/@types", "./node_modules/@types"]
 	},
-	"exclude": ["dist", "node_modules", "package-lock.json", "package.json"]
+	"include": ["./src/**/*.ts"],
+	"exclude": ["dist", "node_modules", "yarn.lock", "package.json"]
 }
