@@ -1,7 +1,10 @@
-import { glob } from 'glob';
 import type Bot from '..';
 import { promisify } from 'util';
-const pg: Function = promisify(glob);
+import { glob, IOptions } from 'glob';
+const pg: (
+	pattern: string,
+	options?: IOptions | undefined
+) => Promise<string[]> = promisify(glob);
 
 export default async function Handler(bot: Bot) {
 	for (let i of await pg('dist/src/events/**/*.js')) {
@@ -12,5 +15,13 @@ export default async function Handler(bot: Bot) {
 		let type: 'on' | 'once' = event.type;
 
 		bot[type](`${event.name}`, (...args: unknown[]) => event.run(...args));
+	}
+
+	for (let i of await pg('dist/src/commands/**/*.js')) {
+		let command = require(`..${i.replace('dist/src', '')}`);
+
+		command = new command.default(bot);
+
+		bot.commands.add(command);
 	}
 }
