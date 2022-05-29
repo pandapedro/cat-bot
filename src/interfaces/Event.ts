@@ -1,4 +1,4 @@
-import type Bot from '../utilities/Bot';
+import type Bot from '..';
 import type { ClientEvents } from 'eris';
 
 export default class DefaultEvent {

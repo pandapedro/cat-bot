@@ -1,5 +1,5 @@
 import { glob } from 'glob';
-import type Bot from './Bot';
+import type Bot from '..';
 import { promisify } from 'util';
 const pg: Function = promisify(glob);
 

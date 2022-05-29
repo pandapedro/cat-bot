@@ -1,6 +1,11 @@
-import Bot from './utilities/Bot';
-import Handler from './utilities/Handler';
+import { Client } from 'eris';
 
-const bot: Bot = new Bot();
-
-bot.connect().then(async () => await Handler(bot));
+export default class Bot extends Client {
+	constructor() {
+		super(`Bot ${process.env.TOKEN}`, {
+			restMode: true,
+			maxShards: 'auto',
+			intents: ['guilds', 'guildMembers', 'guildVoiceStates'],
+		});
+	}
+}
