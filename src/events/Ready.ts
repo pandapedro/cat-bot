@@ -1,4 +1,4 @@
-import Bot from '../utilities/Bot';
+import Bot from '..';
 import DefaultEvent from '../interfaces/Event';
 
 export default class Event extends DefaultEvent {
