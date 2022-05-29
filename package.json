@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"start": "yarn build && node .",
+		"start": "yarn build && yarn prettier && node .",
 		"prettier": "prettier --config .prettierrc . --write"
 	}
 }

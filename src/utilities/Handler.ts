@@ -23,7 +23,5 @@ export default async function Handler(bot: Bot) {
 		command = new command.default(bot);
 
 		bot.commands.add(command);
-
-		await bot.createCommand(command.slash as any);
 	}
 }

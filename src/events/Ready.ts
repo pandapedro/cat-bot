@@ -1,3 +1,4 @@
+import 'colors';
 import Bot from '..';
 import DefaultEvent from '../interfaces/Event';
 
